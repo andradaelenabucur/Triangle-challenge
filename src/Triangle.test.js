@@ -1,6 +1,6 @@
 const checkTriangleTypeBySideLengths = require("./Triangle");
 const TRIANGLE = require('./enums/Triangle');
-const Error = require('./errors/Error');
+const TriangleError = require('./errors/TriangleError');
 
 describe('Test Triangle checkTriangleTypeBySideLengths function', function () {
 
@@ -9,7 +9,7 @@ describe('Test Triangle checkTriangleTypeBySideLengths function', function () {
         try {
             checkTriangleTypeBySideLengths(...triangleSides);
         } catch (error) {
-            expect(error.message).toEqual(Error.sideNotDefined);
+            expect(error.message).toEqual(TriangleError.sideNotDefined);
         }
 
     });
@@ -20,7 +20,7 @@ describe('Test Triangle checkTriangleTypeBySideLengths function', function () {
         try {
             checkTriangleTypeBySideLengths(...triangleSides);
         } catch (error) {
-            expect(error.message).toEqual(Error.sideNotANumber);
+            expect(error.message).toEqual(TriangleError.sideNotANumber);
         }
 
     });
@@ -30,7 +30,7 @@ describe('Test Triangle checkTriangleTypeBySideLengths function', function () {
         try {
             checkTriangleTypeBySideLengths(...triangleSides);
         } catch (error) {
-            expect(error.message).toEqual(Error.notATriangle);
+            expect(error.message).toEqual(TriangleError.notATriangle);
         }
 
     });
