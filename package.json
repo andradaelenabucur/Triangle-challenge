@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/andradaelenabucur/challenge#readme",
   "devDependencies": {
-    "jest": "^24.0.0"
+    "jest": "^24.0.0",
+    "eslint": "^5.12.1"
   }
 }
