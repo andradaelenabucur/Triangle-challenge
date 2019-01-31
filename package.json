@@ -1,0 +1,22 @@
+{
+  "name": "challenge",
+  "version": "1.0.0",
+  "description": "Triangle challenge",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andradaelenabucur/challenge.git"
+  },
+  "author": "Elena Andrada Bucur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andradaelenabucur/challenge/issues"
+  },
+  "homepage": "https://github.com/andradaelenabucur/challenge#readme",
+  "devDependencies": {
+    "jest": "^24.0.0",
+    "eslint": "^5.12.1"
+  }
+}
