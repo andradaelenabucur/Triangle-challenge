@@ -5,4 +5,5 @@ I recommend using `Visual Studio Code` editor. Make sure you have added the `ESL
 Run `npm install` to install all modules listed as dependencies in package.json
 
 Run `npm start` to check the triangle type
+
 Run `npm test` to run tests
