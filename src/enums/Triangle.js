@@ -3,4 +3,5 @@ const TRIANGLE = {
     ISOSCELES: 'isosceles',
     SCALENE: 'scalene'
 };
+
 module.exports = TRIANGLE;

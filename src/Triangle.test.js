@@ -1,4 +1,6 @@
 const checkTriangleTypeBySideLengths = require("./Triangle");
+const TRIANGLE = require('./enums/Triangle');
+const Error = require('./errors/Error');
 
 describe('Test Triangle checkTriangleTypeBySideLengths function', function () {
 
@@ -7,7 +9,7 @@ describe('Test Triangle checkTriangleTypeBySideLengths function', function () {
         try {
             checkTriangleTypeBySideLengths(...triangleSides);
         } catch (error) {
-            expect(error.message).toEqual(`Please make sure that you provided all triangle sides and all side values are numbers!`);
+            expect(error.message).toEqual(Error.sideNotDefined);
         }
 
     });
@@ -18,7 +20,7 @@ describe('Test Triangle checkTriangleTypeBySideLengths function', function () {
         try {
             checkTriangleTypeBySideLengths(...triangleSides);
         } catch (error) {
-            expect(error.message).toEqual(`Please use only number values for the triangle's sides!`);
+            expect(error.message).toEqual(Error.sideNotANumber);
         }
 
     });
@@ -28,23 +30,23 @@ describe('Test Triangle checkTriangleTypeBySideLengths function', function () {
         try {
             checkTriangleTypeBySideLengths(...triangleSides);
         } catch (error) {
-            expect(error.message).toEqual(`Please provide some correct values for the triangle's sides.`);
+            expect(error.message).toEqual(Error.notATriangle);
         }
 
     });
 
     it('should return equilateral when all the sides have the same lengths', function () {
         const triangleSides = [2, 2, 2];
-        expect(checkTriangleTypeBySideLengths(...triangleSides)).toEqual('equilateral');
+        expect(checkTriangleTypeBySideLengths(...triangleSides)).toEqual(TRIANGLE.EQUILATERAL);
     });
 
     it('should return isosceles when 2 sides have the same length', function () {
         const triangleSides = [2, 2, 3];
-        expect(checkTriangleTypeBySideLengths(...triangleSides)).toEqual('isosceles');
+        expect(checkTriangleTypeBySideLengths(...triangleSides)).toEqual(TRIANGLE.ISOSCELES);
     });
 
     it('should return scalene when all sides have the different lengths', function () {
         const triangleSides = [2, 1, 3];
-        expect(checkTriangleTypeBySideLengths(...triangleSides)).toEqual('scalene');
+        expect(checkTriangleTypeBySideLengths(...triangleSides)).toEqual(TRIANGLE.SCALENE);
     });
 });

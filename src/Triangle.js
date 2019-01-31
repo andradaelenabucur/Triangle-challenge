@@ -3,21 +3,22 @@
     The triangle is considered not a degenerate one 
 */
 const TRIANGLE = require("./enums/Triangle");
+const Error = require("./errors/Error");
 
 const checkTriangleTypeBySideLengths = (sideA, sideB, sideC) => {
 
     if (sideA === undefined || sideB === undefined || sideC === undefined) {
-        throw new Error(`Please make sure that you provided all triangle sides and all side values are numbers!`);
+        throw new Error(Error.sideNotDefined);
     }
     if (typeof sideA !== "number" || typeof sideB !== "number" || typeof sideC !== "number") {
-        throw new Error(`Please use only number values for the triangle's sides!`);
+        throw new Error(Error.sideNotANumber);
     }
     if (
         sideA > 0 && sideB > 0 && sideC > 0 && sideA + sideB >= sideC &&
         sideA + sideC >= sideB && sideB + sideC >= sideA) {
         console.log(`This is a triangle with: sideA: ${sideA}, sideB: ${sideB} and sideC: ${sideC}.`);
     } else {
-        throw new Error(`Please provide some correct values for the triangle's sides.`);
+        throw new Error(Error.notATriangle);
     }
     if (sideA === sideB && sideB === sideC) {
         console.log('This is an equilateral triangle.');
