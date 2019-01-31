@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Triangle challenge",
   "scripts": {
+    "start": "node ./src/index.js",
     "test": "jest --coverage"
   },
   "repository": {

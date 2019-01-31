@@ -1,6 +1,6 @@
 const checkTriangleTypeBySideLengths = require("./Triangle");
-const TRIANGLE = require('./enums/Triangle');
-const TriangleError = require('./errors/TriangleError');
+const TRIANGLE = require('../enums/Triangle');
+const TriangleError = require('../errors/TriangleError');
 
 describe('Test Triangle checkTriangleTypeBySideLengths function', function () {
 

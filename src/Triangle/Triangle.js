@@ -2,15 +2,16 @@
     All triangle's sides have the same unit measure
     The triangle is considered not a degenerate one 
 */
-const TRIANGLE = require("./enums/Triangle");
-const TriangleError = require("./errors/TriangleError");
+const TRIANGLE = require("../enums/Triangle");
+const TriangleError = require("../errors/TriangleError");
 
 const checkTriangleTypeBySideLengths = (sideA, sideB, sideC) => {
 
     if (sideA === undefined || sideB === undefined || sideC === undefined) {
         throw new Error(TriangleError.sideNotDefined);
     }
-    if (typeof sideA !== "number" || typeof sideB !== "number" || typeof sideC !== "number") {
+    if (typeof sideA !== "number" || typeof sideB !== "number" || typeof sideC !== "number" ||
+        Number.isNaN(sideA) || Number.isNaN(sideB) || Number.isNaN(sideC)) {
         throw new Error(TriangleError.sideNotANumber);
     }
     if (
