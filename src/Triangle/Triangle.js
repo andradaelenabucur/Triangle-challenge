@@ -4,6 +4,7 @@
 */
 const TRIANGLE = require("../enums/Triangle");
 const TriangleError = require("../errors/TriangleError");
+const areTheNumbersAlmostEqual = require("../utility/checkEquality");
 
 const checkTriangleTypeBySideLengths = (sideA, sideB, sideC) => {
 
@@ -15,8 +16,10 @@ const checkTriangleTypeBySideLengths = (sideA, sideB, sideC) => {
         throw new Error(TriangleError.sideNotANumber);
     }
     if (
-        sideA > 0 && sideB > 0 && sideC > 0 && sideA + sideB >= sideC &&
-        sideA + sideC >= sideB && sideB + sideC >= sideA) {
+        sideA > 0 && sideB > 0 && sideC > 0 &&
+        sideA + sideB > sideC && !areTheNumbersAlmostEqual(sideA + sideB, sideC) &&
+        sideA + sideC > sideB && !areTheNumbersAlmostEqual(sideA + sideC, sideB) &&
+        sideB + sideC > sideA && !areTheNumbersAlmostEqual(sideB + sideC, sideA)) {
         console.log(`This is a triangle with: sideA: ${sideA}, sideB: ${sideB} and sideC: ${sideC}.`);
     } else {
         throw new Error(TriangleError.notATriangle);
