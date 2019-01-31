@@ -2,14 +2,18 @@
     All triangle's sides have the same unit measure
     The triangle is considered not a degenerate one 
 */
-const TRIANGLE= require("./enums/Triangle");
+const TRIANGLE = require("./enums/Triangle");
 
 const checkTriangleTypeBySideLengths = (sideA, sideB, sideC) => {
+
+    if (sideA === undefined || sideB === undefined || sideC === undefined) {
+        throw new Error(`Please make sure that you provided all triangle sides and all side values are numbers!`);
+    }
     if (typeof sideA !== "number" || typeof sideB !== "number" || typeof sideC !== "number") {
         throw new Error(`Please use only number values for the triangle's sides!`);
     }
     if (
-        sideA > 0 && sideB > 0 && sideC > 0 && sideA + sideB >= sideC && 
+        sideA > 0 && sideB > 0 && sideC > 0 && sideA + sideB >= sideC &&
         sideA + sideC >= sideB && sideB + sideC >= sideA) {
         console.log(`This is a triangle with: sideA: ${sideA}, sideB: ${sideB} and sideC: ${sideC}.`);
     } else {
@@ -27,4 +31,4 @@ const checkTriangleTypeBySideLengths = (sideA, sideB, sideC) => {
     }
 };
 
-checkTriangleTypeBySideLengths(2, 2, 2);
+module.exports = checkTriangleTypeBySideLengths;
