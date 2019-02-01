@@ -46,7 +46,7 @@ describe('Test Triangle checkTriangleTypeBySideLengths function', function () {
     });
 
     it('should return scalene when all sides have the different lengths', function () {
-        const triangleSides = [2, 1, 3];
+        const triangleSides = [2, 4, 3];
         expect(checkTriangleTypeBySideLengths(...triangleSides)).toEqual(TRIANGLE.SCALENE);
     });
 });
